@@ -5,7 +5,7 @@ import { conectaApi } from "./conectaApi.js";
 const lista = document.querySelector("[data-lista]");
 
 // Função que constrói e retorna um card de vídeo
-function constroiCard(titulo, descricao, url, imagem) {
+export default function constroiCard(titulo, descricao, url, imagem) {
     // Cria um elemento <li> para representar um item de lista
     const video = document.createElement("li");
     // Adiciona a classe 'videos__item' ao elemento <li>
