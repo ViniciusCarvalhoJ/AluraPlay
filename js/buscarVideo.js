@@ -26,8 +26,11 @@ async function buscarVideo(evento) {
     // Itera sobre os resultados da busca e adiciona cada um como um novo elemento na lista
     // 'constroiCard' é uma função que cria um elemento HTML representando um vídeo
     busca.forEach(elemento => lista.appendChild(
-        constroiCard(elemento.titulo, elemento.descricao, elemento.url, elemento.imagem)
-    ));
+        constroiCard(elemento.titulo, elemento.descricao, elemento.url, elemento.imagem)));
+
+    if(busca.lenght == 0){
+        lista.innerHTML = `<h2 class="mensagem__titulo">Nao existe videos com esse termo</h2>`
+    }
 }
 
 // Seleciona o botão de pesquisa no documento HTML que possui o atributo 'data-botao-pesquisa'

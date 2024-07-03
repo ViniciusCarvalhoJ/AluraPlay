@@ -29,10 +29,15 @@ export default function constroiCard(titulo, descricao, url, imagem) {
 
 // Função assíncrona que lista os vídeos
 async function listaVideos() {
-    // Chama a função 'listaVideos' do módulo 'conectaApi' e espera a resposta
-    const listaApi = await conectaApi.listaVideos();
-    lista.innerHTML = ''; // Limpa a lista existente
-    listaApi.forEach(elemento => lista.appendChild(constroiCard(elemento.titulo, elemento.descricao, elemento.url, elemento.imagem)))
+    try {
+        // Chama a função 'listaVideos' do módulo 'conectaApi' e espera a resposta
+        const listaApi = await conectaApi.listaVideos();
+        lista.innerHTML = ''; // Limpa a lista existente
+        listaApi.forEach(elemento => lista.appendChild(constroiCard(elemento.titulo, elemento.descricao, elemento.url, elemento.imagem)));
+        
+    } catch{
+        lista.innerHTML = `<h2 class="mensagem__titulo">Não foi possivel carregar a lista de vídeos</h2>`
+    }
         
 }
 
